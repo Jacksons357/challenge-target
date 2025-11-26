@@ -7,13 +7,13 @@
     "dev": "tsx watch src/server.ts",
     "build": "tsc",
     "start": "node dist/server.js",
-
     "db:migrate": "npx sequelize-cli db:migrate",
     "db:migrate:undo": "npx sequelize-cli db:migrate:undo",
     "db:seed": "npx sequelize-cli db:seed:all",
     "db:seed:undo": "npx sequelize-cli db:seed:undo:all",
-
-    "docker:migrate": "docker exec -it backend npm run db:migrate"
+    "docker:migrate": "docker exec -it backend npm run db:migrate",
+    "docker:seed": "docker exec -it backend npm run db:seed",
+    "docker:seed:undo": "docker exec -it backend npm run db:seed:undo"
   },
   "keywords": [],
   "author": "",
