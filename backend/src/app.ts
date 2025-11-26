@@ -1,5 +1,6 @@
 import cors from '@fastify/cors'
 import fastify from 'fastify'
+import { createAssociations } from './domain/entities/associations'
 import { routes } from './infra/http/routes/routes'
 import { handlerError } from './shared/errors/handler.error'
 
@@ -25,3 +26,5 @@ app.register(cors, {
 app.setErrorHandler(handlerError)
 
 app.register(routes)
+
+createAssociations()
