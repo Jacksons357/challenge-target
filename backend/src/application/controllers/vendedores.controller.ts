@@ -17,4 +17,17 @@ export class VendedoresController {
 			return error
 		}
 	}
+
+	async getComissoes(_: FastifyRequest, res: FastifyReply) {
+		try {
+			const comissoes = await this.vendedoresService.getComissoes()
+
+			return res.status(200).send(comissoes)
+		} catch (error) {
+			if (error instanceof AppError) {
+				return res.status(error.code).send({ message: error.message })
+			}
+			return error
+		}
+	}
 }
