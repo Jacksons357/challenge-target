@@ -48,5 +48,8 @@ E o frontend em `http://localhost:4200`
 A documentação da API está disponível em `http://localhost:3333/docs`
 (Já é possível testar os desafios através das rotas)
 
+<img width="700" height="600" alt="image" src="https://github.com/user-attachments/assets/be237035-425f-475f-827e-969b745c3d5e" />
+
+
 A lógica de negócio está implementada na camada de serviço (service) do backend.
 ```backend/src/domain/services```	
