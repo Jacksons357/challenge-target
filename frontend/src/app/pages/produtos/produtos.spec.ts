@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental'
 
 import { Produtos } from './produtos';
 
@@ -8,7 +9,8 @@ describe('Produtos', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Produtos]
+      imports: [Produtos],
+      providers: [provideTanStackQuery(new QueryClient())]
     })
     .compileComponents();
 

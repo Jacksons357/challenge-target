@@ -1,27 +1,20 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z1">
-  <ng-container matColumnDef="sku">
-    <th mat-header-cell *matHeaderCellDef>SKU</th>
-    <td mat-cell *matCellDef="let row">{{ row.sku }}</td>
+<div *ngIf="estoque.isLoading()">Carregando...</div>
+<div *ngIf="estoque.isError()">Erro ao carregar estoque</div>
+
+<table mat-table [dataSource]="estoque.data() ?? []" class="mat-elevation-z1">
+  <ng-container matColumnDef="codigoProduto">
+    <th mat-header-cell *matHeaderCellDef>Código do Produto</th>
+    <td mat-cell *matCellDef="let row">{{ row.codigoProduto }}</td>
   </ng-container>
 
-  <ng-container matColumnDef="produto">
-    <th mat-header-cell *matHeaderCellDef>Produto</th>
-    <td mat-cell *matCellDef="let row">{{ row.produto }}</td>
-  </ng-container>
-
-  <ng-container matColumnDef="categoria">
-    <th mat-header-cell *matHeaderCellDef>Categoria</th>
-    <td mat-cell *matCellDef="let row">{{ row.categoria }}</td>
+  <ng-container matColumnDef="descricaoProduto">
+    <th mat-header-cell *matHeaderCellDef>Descrição do Produto</th>
+    <td mat-cell *matCellDef="let row">{{ row.descricaoProduto }}</td>
   </ng-container>
 
   <ng-container matColumnDef="estoque">
     <th mat-header-cell *matHeaderCellDef>Estoque</th>
     <td mat-cell *matCellDef="let row">{{ row.estoque }}</td>
-  </ng-container>
-
-  <ng-container matColumnDef="preco">
-    <th mat-header-cell *matHeaderCellDef>Preço</th>
-    <td mat-cell *matCellDef="let row">R$ {{ row.preco | number:'1.2-2' }}</td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
