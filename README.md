@@ -24,6 +24,11 @@ cd backend
 cp .env.example .env
 ```
 
+4. Instale as dependências do backend
+```
+npm install
+```
+
 3. Suba os containers
 ```
 docker-compose up -d --build
