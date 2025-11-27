@@ -9,4 +9,7 @@ app
 	})
 	.then(() => {
 		app.log.info(`Server is running on port ${port}`)
+		app.log.info(
+			`Swagger documentation available at http://localhost:${port}/docs`,
+		)
 	})
