@@ -3,6 +3,22 @@ import { HttpClient } from '@angular/common/http'
 import { environment } from '../../../environments/environment'
 import { map } from 'rxjs'
 
+export interface Produto {
+  id: number
+  codigoProduto: number
+  descricaoProduto: string
+  estoque: number
+  createdAt: string
+  updatedAt: string
+}
+
+export interface MovimentacaoDto {
+  produtoId: number
+  tipo: 'ENTRADA' | 'SAIDA'
+  quantidade: number
+  descricao: string
+}
+
 @Injectable({ providedIn: 'root' })
 export class Api {
   constructor(private http: HttpClient) {}
@@ -14,14 +30,14 @@ export class Api {
   }
 
   getEstoque() {
-    return this.http.get<{ estoque: any[] }>(this.url('/estoque')).pipe(map(r => r.estoque))
+    return this.http.get<{ estoque: Produto[] }>(this.url('/estoque')).pipe(map(r => r.estoque))
   }
 
   getVendas() {
     return this.http.get<any[]>(this.url('/vendas'))
   }
 
-  atualizarEstoqueItem(id: string, dto: any) {
-    return this.http.patch(this.url(`/estoque/${id}`), dto)
+  movimentarEstoque(dto: MovimentacaoDto) {
+    return this.http.post(this.url('/estoque/movimentar'), dto)
   }
 }
